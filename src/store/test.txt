@@ -1,0 +1,41 @@
+
+<script>
+
+    import {mapState,mapMutations} from 'vuex';
+
+
+    export default {
+
+        created() {
+            this.$store.dispatch('setQualificationsAction');
+        },
+        // after getting the action to set the sttate,you should fetch the state usingmapSAte
+        data() {
+            return {
+                qualification_id:'',
+            }
+        },
+        computed: mapState({
+            listz: state => state.listModule.list,
+            qualificationz: state => state.qualificationModule.qualifcation
+        }),
+
+        methods:{
+            addForm:function(){
+                this.$router.push({
+                    name: 'add-form-borrower'
+                })
+            },
+            Register:function ($id) {
+                this.$store.dispatch('setIdRegisterAction',$id)
+                this.$router.push({
+                    name:'register'
+                })
+            },
+            load:function () {
+                this.$store.dispatch('setListAction',this.qualification_id)
+            }
+
+        }
+
+    }

@@ -39,6 +39,26 @@
                     </dl>
 
                     <dl class="inputbox">
+                        <dt class="inputbox-title">Birth Order</dt>
+                        <dd class="inputbox-content">
+                            <input id="input1" type="number" v-model="birth_order" required/>
+                            <label for="input1">Birth Order</label>
+                            <span class="underline"></span>
+                        </dd>
+                    </dl>
+
+                    <dl class="inputbox">
+                        <dt class="inputbox-title">Number of Sibling's</dt>
+                        <dd class="inputbox-content">
+                            <input id="input1" type="text" v-model="number_of_siblings" required/>
+                            <label for="input1">Number of Siblings</label>
+                            <span class="underline"></span>
+                        </dd>
+                    </dl>
+
+
+
+                    <dl class="inputbox">
                         <dt class="inputbox-title">Religious Affiliation</dt>
                         <dd class="inputbox-content">
                             <input id="input1" type="text" v-model="religion" required/>
@@ -72,24 +92,6 @@
                         <dd class="inputbox-content">
                             <input id="input1" type="text" v-model="number" required/>
                             <label for="input1">Cellphone/Landlime Number</label>
-                            <span class="underline"></span>
-                        </dd>
-                    </dl>
-
-                    <dl class="inputbox">
-                        <dt class="inputbox-title">Birth Order</dt>
-                        <dd class="inputbox-content">
-                            <input id="input1" type="number" v-model="birth_order" required/>
-                            <label for="input1">Birth Order</label>
-                            <span class="underline"></span>
-                        </dd>
-                    </dl>
-
-                    <dl class="inputbox">
-                        <dt class="inputbox-title">Number of Sibling's</dt>
-                        <dd class="inputbox-content">
-                            <input id="input1" type="text" v-model="number_of_siblings" required/>
-                            <label for="input1">Number of Siblings</label>
                             <span class="underline"></span>
                         </dd>
                     </dl>

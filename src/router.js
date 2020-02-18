@@ -16,12 +16,24 @@ import PerosanalInfo2 from "./page/record/PerosanalInfo2";
 import PerosanalInfo3 from "./page/record/PerosanalInfo3";
 import IndexSystemUser from "./page/system_user/IndexSystemUser";
 import CreateSystemUser from "./page/system_user/CreateSystemUser";
+import FamilyHistory from "./page/record/FamilyHistory";
+import FamilyHistory2 from "./page/record/FamilyHistory2";
 
 Vue.use(Router);
 
 // export default new Router({
 const router = new Router({
     routes: [
+        {
+            path:'/record/family-history/1',
+            name:'family.1',
+            component:FamilyHistory
+        },
+        {
+            path:'/record/family-history/2',
+            name:'family.2',
+            component:FamilyHistory2
+        },
         {
             path:'/record/personal-info/1',
             name:'record.create',

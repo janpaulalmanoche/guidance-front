@@ -16,43 +16,84 @@
                     <span class="fa fa-circle"></span>
                     <span class="fa fa-circle"></span>
                 </div>
-                <h2>Personal Information<span>3/3</span></h2>
+                <h2>Personal Information<span>3/3 ( FOR STUDENTS OFFICIALLY RESIDENT OF GENERAL SANTOS CITY )</span></h2>
 
                 <div class="input-content-wrap">
 
-                    <!--<dl class="inputbox">-->
-                        <!--<dt class="inputbox-title">First Name</dt>-->
-                        <!--<dd class="inputbox-content">-->
-                            <!--<input id="input0" type="text" v-model="first_name" disabled/>-->
-                            <!--<span class="underline"></span>-->
-                        <!--</dd>-->
-                    <!--</dl>-->
+                    <dl class="inputbox" >
+                        <dt class="inputbox-title">Where do you stay </dt>
+                        <dd class="inputbox-content">
+                            <select id="input1" style="width: 550px;background-color: #d5d5d5;height: 40px"
+                                    v-model="place ">
+                                <option v-for="d in place_"
+                                        v-bind:key="d.id"
+                                        v-bind:value="d.id"
+                                >{{d.place}}
+                                </option>
 
-                    <!--<dl class="inputbox">-->
-                        <!--<dt class="inputbox-title">Middle Name</dt>-->
-                        <!--<dd class="inputbox-content">-->
-                            <!--<input id="input1" type="text" v-model="middle_name" disabled/>-->
-                            <!--<span class="underline"></span>-->
-                        <!--</dd>-->
-                    <!--</dl>-->
+                            </select>
+                            <span class="underline"></span>
+                        </dd>
+                    </dl>
 
-                    <!--<dl class="inputbox">-->
-                        <!--<dt class="inputbox-title">Last Name</dt>-->
-                        <!--<dd class="inputbox-content">-->
-                            <!--<input id="input1" type="text" v-model="last_name" disabled/>-->
-                            <!--&lt;!&ndash;<label for="input1">Last Name</label>&ndash;&gt;-->
-                            <!--<span class="underline"></span>-->
-                        <!--</dd>-->
-                    <!--</dl>-->
 
-                    <!--<dl class="inputbox">-->
-                        <!--<dt class="inputbox-title">ID NO.</dt>-->
-                        <!--<dd class="inputbox-content">-->
-                            <!--<input id="input1" type="text" v-model="id_no" disabled/>-->
-                            <!--&lt;!&ndash;<label for="input1">Last Name</label>&ndash;&gt;-->
-                            <!--<span class="underline"></span>-->
-                        <!--</dd>-->
-                    <!--</dl>-->
+                    <dl class="inputbox">
+                        <dt class="inputbox-title">
+                            <span v-if="place === 1 || place === 2 || place === 3">Landlord Name </span></dt>
+                        <dt class="inputbox-title">
+                            <span v-if="place === 5">Employer Name</span></dt>
+                        <dt class="inputbox-title" > <span v-if="place === 4">Relative</span></dt>
+                        <dt class="inputbox-title"><span v-if="place === 6">For Other's </span></dt>
+                        <dd class="inputbox-content" >
+                            <input id="input1" type="text" v-model="landlord"/>
+                            <span class="underline"></span>
+                        </dd>
+                    </dl>
+
+                    <dl class="inputbox">
+                        <dt class="inputbox-title">Contact #</dt>
+                        <dd class="inputbox-content">
+                            <input id="input1" type="number" v-model="landlord_number" />
+                            <!--<label for="input1">Last Name</label>-->
+                            <span class="underline"></span>
+                        </dd>
+                    </dl>
+
+                    <dl class="inputbox">
+                        <dt class="inputbox-title">Incase of Emergency</dt>
+                        <dd class="inputbox-content">
+                            <input id="input1" type="text" v-model="person_to_be_contacted_emergency" />
+                            <label for="input1">Person to be Contacted</label>
+                            <span class="underline"></span>
+                        </dd>
+                    </dl>
+
+                    <dl class="inputbox">
+                        <dt class="inputbox-title">Relationship</dt>
+                        <dd class="inputbox-content">
+                            <input id="input1" type="text" v-model="relationship_person_to_be_contacted_emergency" />
+                            <label for="input1"> </label>
+                            <span class="underline"></span>
+                        </dd>
+                    </dl>
+
+                    <dl class="inputbox">
+                        <dt class="inputbox-title">Contact #</dt>
+                        <dd class="inputbox-content">
+                            <input id="input1" type="text" v-model="relationship_person_to_be_contacted_emergency_no" />
+                            <label for="input1"> </label>
+                            <span class="underline"></span>
+                        </dd>
+                    </dl>
+
+                    <dl class="inputbox">
+                        <dt class="inputbox-title">Address</dt>
+                        <dd class="inputbox-content">
+                            <input id="input1" type="text" v-model="complete_address" />
+                            <label for="input1"> </label>
+                            <span class="underline"></span>
+                        </dd>
+                    </dl>
 
                     <div class="btns">
                         <button class="btn btn-cancel" @click="back">Back</button>
@@ -66,21 +107,41 @@
 
 <script>
     import './create.scss'
-
+    import axios from 'axios'
     export default {
+        mounted(){
+            axios.get('http://127.0.0.1:8000/api/place-stayin-on-gensan').then( (r)=>{
+                this.place_ = r.data.data
+            })
+        },
+
         data() {
             return {
-                first_name: this.$store.state.LoginModule.user_loged_in[0].first_name,
-                middle_name: this.$store.state.LoginModule.user_loged_in[0].middle_name,
-                last_name: this.$store.state.LoginModule.user_loged_in[0].last_name,
-                id_no: this.$store.state.LoginModule.user_loged_in[0].id_no,
+                place_:{},
+                place:'',
+                landlord:'',
+                landlord_number:'',
+                person_to_be_contacted_emergency:'',
+                relationship_person_to_be_contacted_emergency:'',
+                relationship_person_to_be_contacted_emergency_no:'',
+                complete_address:''
+
 
             }
         },
         methods: {
             next() {
-                this.$router.push('')
-            },
+                this.$router.push('/record/family-history/1');
+                this.$store.dispatch('place',this.place);
+                this.$store.dispatch('landlord',this.landlord);
+                this.$store.dispatch('landlord_number',this.landlord_number);
+                this.$store.dispatch('person_to_be_contacted_emergency',this.person_to_be_contacted_emergency);
+                this.$store.dispatch('relationship_person_to_be_contacted_emergency',this.relationship_person_to_be_contacted_emergency);
+                this.$store.dispatch('relationship_person_to_be_contacted_emergency_no',this.relationship_person_to_be_contacted_emergency_no);
+                this.$store.dispatch('complete_address',this.complete_address);
+
+
+                },
             back(){
                 this.$router.push('/record/personal-info/2')
             }
@@ -94,7 +155,7 @@
 <style scoped>
     .fa {
         color:#8dcdff;
-        font-size: 15px;
+        font: ;nt-size: 15px;
         margin-left:5px;
     }
     .check {

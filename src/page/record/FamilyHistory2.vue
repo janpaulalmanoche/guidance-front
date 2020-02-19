@@ -15,8 +15,9 @@
                     <span class="fa fa-circle "></span>
                     <span class="fa fa-circle"></span>
                     <span class="fa fa-circle"></span>
+                    <span class="fa fa-circle"></span>
                 </div>
-                <h2>Family History<span>1/3 (Mother Details)</span></h2>
+                <h2>Family History<span>2/2 (Mother Details)</span></h2>
 
                 <div class="input-content-wrap">
 
@@ -149,7 +150,7 @@
         methods: {
             next() {
                 // console.log('haho')
-                alert('test')
+                // alert('test')
                 this.$store.dispatch('MM_middle_name',this.m_middle_name);
                 this.$store.dispatch('m_first_name',this.m_first_name);
                 this.$store.dispatch('MM_last_name',this.m_last_name);
@@ -162,10 +163,13 @@
                 this.$store.dispatch('MM_highes_education_attainment',this.m_highes_education_attainment);
                 this.$store.dispatch('MM_office_address',this.m_office_address);
                 this.$store.dispatch('MM_position',this.m_position);
+
+                this.$router.push('/record/parents-marital-status')
             },
             back(){
                 this.$router.push('/record/family-history/1')
             }
+
         },
 
     }

@@ -44,6 +44,7 @@
                         this.$toast.add({severity:'success', summary: '', detail:'LoggedIn', life: 3000})
                         this.$store.dispatch('UPDATE_AUTH_A')
                         this.$store.dispatch('UPDATE_USER_LOGED_IN',r.data.user)
+                        localStorage.setItem('user_id',r.data.user[0].id)
                         this.$router.push('/')
                     }else{
                         this.$toast.add({severity:'error', summary: '', detail:'Wrong Credentials', life: 3000})

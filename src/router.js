@@ -18,6 +18,10 @@ import IndexSystemUser from "./page/system_user/IndexSystemUser";
 import CreateSystemUser from "./page/system_user/CreateSystemUser";
 import FamilyHistory from "./page/record/FamilyHistory";
 import FamilyHistory2 from "./page/record/FamilyHistory2";
+import ParentsMaritalStatus from "./page/record/ParentsMaritalStatus";
+import SocioEconomic from "./page/record/SocioEconomic";
+import TransportationOfFamily from "./page/record/TransportationOfFamily";
+import Appliance from "./page/record/Appliance";
 
 Vue.use(Router);
 
@@ -25,8 +29,28 @@ Vue.use(Router);
 const router = new Router({
     routes: [
         {
+            path:'/record/appliance',
+            name:'dfdfdf.1',
+            component:Appliance
+        },
+        {
+            path:'/record/family-transportation',
+            name:'famfffily.1',
+            component:TransportationOfFamily
+        },
+        {
+            path:'/record/socio-economic',
+            name:'ff.1',
+            component:SocioEconomic
+        },
+        {
+            path:'/record/parents-marital-status',
+            name:'ff.1',
+            component:ParentsMaritalStatus
+        },
+        {
             path:'/record/family-history/1',
-            name:'family.1',
+            name:'family.7',
             component:FamilyHistory
         },
         {

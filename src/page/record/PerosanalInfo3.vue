@@ -15,6 +15,7 @@
                     <span class="fa fa-circle "></span>
                     <span class="fa fa-circle"></span>
                     <span class="fa fa-circle"></span>
+                    <span class="fa fa-circle"></span>
                 </div>
                 <h2>Personal Information<span>3/3 ( FOR STUDENTS OFFICIALLY RESIDENT OF GENERAL SANTOS CITY )</span></h2>
 
@@ -139,7 +140,6 @@
                 this.$store.dispatch('relationship_person_to_be_contacted_emergency',this.relationship_person_to_be_contacted_emergency);
                 this.$store.dispatch('relationship_person_to_be_contacted_emergency_no',this.relationship_person_to_be_contacted_emergency_no);
                 this.$store.dispatch('complete_address',this.complete_address);
-
 
                 },
             back(){

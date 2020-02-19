@@ -15,6 +15,7 @@
                     <span class="fa fa-circle "></span>
                     <span class="fa fa-circle"></span>
                     <span class="fa fa-circle"></span>
+                    <span class="fa fa-circle"></span>
                 </div>
                 <h2>Personal Information<span>1/3</span></h2>
 

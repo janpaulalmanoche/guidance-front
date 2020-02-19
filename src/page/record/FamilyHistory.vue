@@ -15,8 +15,9 @@
                     <span class="fa fa-circle "></span>
                     <span class="fa fa-circle"></span>
                     <span class="fa fa-circle"></span>
+                    <span class="fa fa-circle"></span>
                 </div>
-                <h2>Family History<span>1/3 (Father Details)</span></h2>
+                <h2>Family History<span>1/2 (Father Details)</span></h2>
 
                 <div class="input-content-wrap">
 
@@ -163,6 +164,7 @@
                    this.$store.dispatch('f_office_address' , this.f_office_address);
                    this.$store.dispatch('f_position' , this.f_position);
                    this.$router.push('/record/family-history/2')
+
 
             },
             back(){

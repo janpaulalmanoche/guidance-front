@@ -22,12 +22,24 @@ import ParentsMaritalStatus from "./page/record/ParentsMaritalStatus";
 import SocioEconomic from "./page/record/SocioEconomic";
 import TransportationOfFamily from "./page/record/TransportationOfFamily";
 import Appliance from "./page/record/Appliance";
+import IndexRecord from "./page/record_index/IndexRecord";
+import StudentRecord from "./page/add_user/StudentRecord";
 
 Vue.use(Router);
 
 // export default new Router({
 const router = new Router({
     routes: [
+        {
+            path:'/view/student-record',
+            name:'student.record',
+            component:StudentRecord
+        },
+        {
+            path:'/record/index',
+            name:'index.record.1',
+            component:IndexRecord
+        },
         {
             path:'/record/appliance',
             name:'dfdfdf.1',

@@ -2,6 +2,14 @@ import axios from 'axios'
 
 export const state = {
 
+    //part1
+    first_name: '',
+    middle_name: '',
+    last_name: '',
+    id_no: '',
+
+
+
 //part 2
     gender: '',
     birthday: '',
@@ -60,6 +68,22 @@ export const state = {
 }
 
 export const mutations = {
+    //part 1
+    F_name(state,data){
+        state.first_name = data
+    },
+    M__name(state,data){
+        state.middle_name = data
+    },
+    L_name(state,data){
+        state.last_name = data
+    },
+    ID_no(state,data){
+        state.id_no =data
+    },
+
+
+    //part 2 info
     birthday(state, $birthday) {
         state.birthday = $birthday;
     },
@@ -213,6 +237,27 @@ export const mutations = {
 
 
 export const actions = {
+    //part 1 info
+
+
+
+
+
+    F_NAME({commit},data){
+        commit('F_name',data)
+    },
+    M_NAME({commit},data){
+        commit('M__name',data)
+    },
+    L_NAME({commit},data){
+        commit('L_name',data)
+    },
+    ID_NO({commit},data){
+        commit('ID_no',data)
+    },
+
+
+    //p[art 2 ionfo
     BDAY({commit}, $birthday) {
         commit('birthday', $birthday);
     },

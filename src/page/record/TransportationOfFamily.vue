@@ -87,7 +87,8 @@
                 this.$store.dispatch('VVehicle_id', this.vehicle_id)
 
                 this.$store.dispatch('SUBMIT_DATA');
-                this.$router.push('/record/personal-info/3')
+                this.$toast.add({severity: 'success', summary: '', detail: 'info saved!', life: 3000})
+                this.$router.push('/')
             }
 
         },

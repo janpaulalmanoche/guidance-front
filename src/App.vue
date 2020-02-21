@@ -15,9 +15,14 @@
                 </div>
 
                 <AppProfile />
-                <AppMenu :model="menu" @menuitem-click="onMenuItemClick" v-show="this.$store.state.LoginModule.user_loged_in[0].role_id === 1 " />
+                <AppMenu :model="menu" @menuitem-click="onMenuItemClick"
+                         v-show="
+                        this.$store.state.LoginModule.user_loged_in[0].type_id ===  3 " />
+
                 <AppMenu :model="menu2" @menuitem-click="onMenuItemClick"
-                         v-show="this.$store.state.LoginModule.user_loged_in[0].role_id  === 2"/>
+                         v-show="this.$store.state.LoginModule.user_loged_in[0].type_id  === 1"/>
+                <AppMenu :model="menu3" @menuitem-click="onMenuItemClick"
+                         v-show="this.$store.state.LoginModule.user_loged_in[0].type_id  === 2"/>
             </div>
         </transition>
 
@@ -49,7 +54,44 @@ export default {
                 menu2:[
                     {label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'},
                     {label: 'Record', icon:'', to: '/record/personal-info/1'},
+                    {label: 'My Record', icon:'', to: '/record/index'},
                 ],
+            menu3 : [
+                {label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'},
+                {label: 'Record', icon:'', to: '/record/personal-info/1'},
+                {label: 'My Record', icon:'', to: '/record/index'},
+                {
+                    label: 'Menu Colors', icon: 'pi pi-fw pi-align-left',
+                    items: [
+                        {label: 'Dark', icon: 'pi pi-fw pi-bars',  command: () => this.layoutColorMode = 'dark' },
+                        {label: 'Light', icon: 'pi pi-fw pi-bars',  command: () => this.layoutColorMode = 'light' }
+                    ]
+                },
+                {
+                    label: 'User', icon: 'pi pi-fw pi-globe',
+                    items: [
+                        {label: 'Add User', icon: 'pi pi-fw pi-th-large', to: '/student/create'},
+                        {label: "User's", icon: 'pi pi-fw pi-file', to: '/user'},
+
+                    ]
+                },
+                {
+                    label: 'Student', icon: 'pi pi-fw pi-globe',
+                    items: [
+                        {label: 'Add Student', icon: 'pi pi-fw pi-th-large', to: '/student/create'},
+                        {label: "Student's", icon: 'pi pi-fw pi-file', to: '/student'},
+
+                    ]
+                },
+                {
+                    label: 'Department', icon: 'pi pi-fw pi-globe',
+                    items: [
+                        {label: 'Department', icon: 'pi pi-fw pi-th-large', to: '/department'},
+                        {label: 'Create', icon: 'pi pi-fw pi-file', to: '/department/create'},
+
+                    ]
+                },
+            ],
                 menu : [
                     {label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'},
 
@@ -84,7 +126,7 @@ export default {
 
                         ]
                     },
-                ]
+                ],
         }
     },
     watch: {

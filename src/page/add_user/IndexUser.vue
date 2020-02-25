@@ -1,7 +1,11 @@
 <template>
     <div>
         <div class="fluid">
-            <h2>Student list  <small></small></h2>
+            <h2>Student list  <small></small></h2><br>
+            <div style="margin-left: 46px">Search : <input type="text" style="height: 25px" @keyup="search"
+                                                           placeholder="search by Last Name" v-model="search_field">
+                <button class=" btn btn-primary" @click="clear" style="margin-left: 5px;height: 20px;background-color: #1fa1fc"> Clear Filter</button>
+            </div>
             <ul class="responsive-table">
                 <li class="table-header">
                     <div class="col col-2">First Name</div>
@@ -33,19 +37,35 @@
 <script>
     import './index.scss'
     import {mapState,mapMutations} from 'vuex';
+    import axios from 'axios'
     export default {
         mounted() {
             this.$store.dispatch('USER_UPDATE_A')
+        },
+        data() {
+            return {
+                search_field: ''
+            }
         },
         methods: {
             set_user_id_for_viewing($id) {
                 // alert($id)
                 localStorage.setItem('set_user_id_admin_side',$id);
                 this.$router.push('/view/student-record')
+            },
+            search(){
+                            // alert(this.search_field)
+                    axios.get('http://127.0.0.1:8000/api/search/'+this.search_field).then( (r)=>{
+                        this.$store.dispatch('USER_UPDATE_SEARCH',r.data.data)
+                    })
+            },
+            clear(){
+                this.$store.dispatch('USER_UPDATE_A')
             }
         },
         computed: mapState({
             users_: state => state.UserModule.user
+
 
         }),
     }

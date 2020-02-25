@@ -23,6 +23,9 @@ export const mutations = {
 }
 
 export const actions = {
+    USER_UPDATE_SEARCH({commit},data){
+        commit('USER_UPDATE',data)
+    },
     USER_UPDATE_A({commit}){
        return axios.get('http://127.0.0.1:8000/api/user').then( (r)=>{
             commit('USER_UPDATE',r.data.data)

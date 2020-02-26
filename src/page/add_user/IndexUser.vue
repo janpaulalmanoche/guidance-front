@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="fluid">
+
             <h2>Student list  <small></small></h2><br>
             <div style="margin-left: 46px">Search : <input type="text" style="height: 25px" @keyup="search"
                                                            placeholder="search by Last Name" v-model="search_field">
@@ -26,6 +27,7 @@
                                 @click="set_user_id_for_viewing(u.id)"
                                 style="color: white;background-color: #1fa1fc;padding: 10px">
                             View Record</button>
+
                     </div>
                 </li>
 
@@ -48,6 +50,27 @@
             }
         },
         methods: {
+            printToPdf: function(event) {
+                var endpoint = "https://v2018.api2pdf.com/chrome/html"
+                var apiKey = "\td97bc307-22d4-4e74-b86b-095d372a91b4"
+                var config = {
+                    headers: {
+                        Authorization: apiKey
+                    }
+                }
+                var payload = {
+                    html: "<p>Hello from VueJs</p>", //Use your own HTML
+                    inlinePdf: true
+                }
+                axios.post(endpoint, payload, config)
+                    .then(function(response) {
+                        console.log(response.data.pdf);
+                        window.location(response.data.pdf)
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+            },
             set_user_id_for_viewing($id) {
                 // alert($id)
                 localStorage.setItem('set_user_id_admin_side',$id);

@@ -39,10 +39,15 @@ import AppTopBar from './AppTopbar.vue';
 import AppProfile from './AppProfile.vue';
 import AppMenu from './AppMenu.vue';
 import AppFooter from './AppFooter.vue';
+import axios from 'axios'
 import store from './store/store'
 export default {
     mounted(){
         // this.$toast.add({severity:'success', summary: '', detail:'LoggedIn', life: 3000})
+        axios.get('http://127.0.0.1:8000/api/archive').then( (r)=>{
+            this.$store.dispatch('SET_STUDENT_STATE',r.data.data)
+        })
+
     },
     data() {
         return {
@@ -94,6 +99,8 @@ export default {
             ],
                 menu : [
                     {label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'},
+                    {label: 'To Be Archived Reoord', icon:'', to: '/excel'},
+                    {label: 'Update Request', icon:'', to: '/update'},
 
                     {
                         label: 'Menu Colors', icon: 'pi pi-fw pi-align-left',

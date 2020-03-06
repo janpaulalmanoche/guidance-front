@@ -8,6 +8,7 @@ import * as LoginModule from './modules/Login'
 import * as DepartmentModul from './modules/Department'
 import * as UserModule from './modules/User'
 import * as RecordModule from './modules/Record'
+import * as Archive from './modules/Archive'
 
 export default new Vuex.Store({
     modules:{
@@ -16,6 +17,7 @@ export default new Vuex.Store({
         DepartmentModul,
         UserModule,
         RecordModule,
+        Archive,
     },
     state: {
 

@@ -24,12 +24,24 @@ import TransportationOfFamily from "./page/record/TransportationOfFamily";
 import Appliance from "./page/record/Appliance";
 import IndexRecord from "./page/record_index/IndexRecord";
 import StudentRecord from "./page/add_user/StudentRecord";
+import Excel from "./page/Excel/Excel";
+import Update from "./page/req_update/Update";
 
 Vue.use(Router);
 
 // export default new Router({
 const router = new Router({
     routes: [
+        {
+            path:'/excel',
+            name:'excel',
+            component:Excel
+        },
+        {
+            path:'/update',
+            name:'up',
+            component:Update
+        },
         {
             path:'/view/student-record',
             name:'student.record',

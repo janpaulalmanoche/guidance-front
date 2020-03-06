@@ -74,6 +74,7 @@ import '@fullcalendar/core/main.min.css';
 import '@fullcalendar/daygrid/main.min.css';
 import '@fullcalendar/timegrid/main.min.css';
 import './assets/layout/layout.scss';
+import JsonExcel from 'vue-json-excel';
 
 Vue.use(ToastService);
 Vue.directive('tooltip', Tooltip);
@@ -142,6 +143,10 @@ Vue.component('TreeTable', TreeTable);
 Vue.component('TriStateCheckbox', TriStateCheckbox);
 Vue.component('ValidationMessage', ValidationMessage);
 // Vue.use(ToastService);
+
+
+Vue.component('downloadExcel', JsonExcel);
+
 import store from './store/store'
 
 new Vue({

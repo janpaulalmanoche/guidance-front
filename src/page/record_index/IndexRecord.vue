@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <button style="background-color:blue;padding:10px;color:white" @click="req_up"> update</button>
         <form action="" class="register">
             <h1>Student Detail's</h1>
             <fieldset class="row1">
@@ -605,6 +605,16 @@
         },
 
         methods: {
+            req_up(){
+                axios.post('http://127.0.0.1:8000/api/req-update',{
+                    first_name:this.first_name,
+                    middle_name:this.middle_name,
+                    last_name:this.last_name,
+                    id_no:this.id_no,
+                    email:this.email
+                })
+            },
+
             update_() {
                 // alert('haha')
                 this.first_name = this.$store.state.RecordModule.first_name;
